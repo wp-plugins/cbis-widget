@@ -4,7 +4,7 @@ Plugin Name: CBIS Widget
 Plugin URI: http://wordpress.org/extend/plugins/cbis-widget/
 Description: CBIS search widget.
 Author: Jonas Hjalmarsson, Hultsfreds kommun
-Version: 0.9.2
+Version: 0.9.3
 Author URI: http://www.hultsfred.se
 */
 
@@ -78,7 +78,13 @@ Author URI: http://www.hultsfred.se
 		
 		// show widget if not empty and this category not is included
 		if ($instance["src"] != "" && ( $instance["show_cbis"] == "" || in_array(get_query_var("cat"), split(",",$instance["show_cbis"])) ) ) {
-			echo "<div id='cbiswidget' class='widget'><h3 class='widget-title'><span>" . $instance["title"] . "</span></h3>";
+		
+			$title = apply_filters( 'widget_title', $instance['title'] );
+
+			echo $before_widget;
+			if ( ! empty( $title ) ) {
+				echo $before_title . $title . $after_title;
+			}
 			?>
 				<div id="citybreak_accommodation_searchform_widget" class="entry-wrapper"></div>
 				<script type="text/javascript">
@@ -99,7 +105,7 @@ Author URI: http://www.hultsfred.se
 				</script>
 
 			<?php
-			echo "</div>";
+			echo $after_widget;
 		}
 
 	}
