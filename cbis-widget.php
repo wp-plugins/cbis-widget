@@ -4,7 +4,7 @@ Plugin Name: CBIS Widget
 Plugin URI: http://wordpress.org/extend/plugins/cbis-widget/
 Description: CBIS search widget.
 Author: Jonas Hjalmarsson, Hultsfreds kommun
-Version: 0.9.3
+Version: 0.9.4
 Author URI: http://www.hultsfred.se
 */
 
@@ -46,6 +46,8 @@ Author URI: http://www.hultsfred.se
 		} else { $show_cbis = ""; }
 		if ( isset( $instance[ 'src' ] ) ) {	$src = $instance[ 'src' ];
 		} else { $src = ""; }
+		if ( isset( $instance[ 'cbis_id' ] ) ) {	$cbis_id = $instance[ 'cbis_id' ];
+		} else { $cbis_id = ""; }
 
 		?>
 		<p>
@@ -57,9 +59,14 @@ Author URI: http://www.hultsfred.se
 		<input class="widefat" id="<?php echo $this->get_field_id( 'show_cbis' ); ?>" name="<?php echo $this->get_field_name( 'show_cbis' ); ?>" type="text" value="<?php echo esc_attr( $show_cbis); ?>" />
 		</p>
 		<p>
-		<label title="http://www2.visithultsfred.se/sv/accommodationwidget/searchform" for="<?php echo $this->get_field_id( 'src' ); ?>">CBIS widget source</label> 
+		<label title="sample: http://www2.visithultsfred.se/sv/accommodationwidget/searchform" for="<?php echo $this->get_field_id( 'src' ); ?>">CBIS widget source</label> 
 		<input class="widefat" id="<?php echo $this->get_field_id( 'src' ); ?>" name="<?php echo $this->get_field_name( 'src' ); ?>" type="text" value="<?php echo esc_attr( $src); ?>" />
 		</p>
+		<p>
+		<label title="sample: citybreak_accommodation_searchform_widget" for="<?php echo $this->get_field_id( 'cbis_id' ); ?>">CBIS placholder div id</label> 
+		<input class="widefat" id="<?php echo $this->get_field_id( 'cbis_id' ); ?>" name="<?php echo $this->get_field_name( 'cbis_id' ); ?>" type="text" value="<?php echo esc_attr( $cbis_id); ?>" />
+		</p>
+		
 
 		<?php
 
@@ -69,7 +76,7 @@ Author URI: http://www.hultsfred.se
 		$instance['show_cbis'] = strip_tags( $new_instance['show_cbis'] );
 		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['src'] = strip_tags( $new_instance['src'] );
-		
+		$instance['cbis_id'] = strip_tags( $new_instance['cbis_id'] );
 		return $instance;
 	}
 
@@ -86,7 +93,7 @@ Author URI: http://www.hultsfred.se
 				echo $before_title . $title . $after_title;
 			}
 			?>
-				<div id="citybreak_accommodation_searchform_widget" class="entry-wrapper"></div>
+				<div id="<?php echo $instance["cbis_id"]; ?>" class="entry-wrapper"></div>
 				<script type="text/javascript">
 				//<![CDATA[ 
 				(function () {

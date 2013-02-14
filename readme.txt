@@ -33,6 +33,9 @@ Drag and drop the widget to your widget-area in the Widgets section, all setting
 
 == Changelog ==
 
+= 0.9.4 =
+Setting for placholder div id added.
+
 = 0.9.3 =
 Bugfix - use before_widget and before_title
 
