@@ -33,6 +33,9 @@ Drag and drop the widget to your widget-area in the Widgets section, all setting
 
 == Changelog ==
 
+= 0.9.5 =
+https bugfix
+
 = 0.9.4 =
 Setting for placholder div id added.
 
