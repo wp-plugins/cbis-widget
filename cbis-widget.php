@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CBIS Widget
-Plugin URI: http://wordpress.org/extend/plugins/cbis-widget/
+Plugin URI: https://wordpress.org/plugins/cbis-widget/
 Description: CBIS search widget.
 Author: Jonas Hjalmarsson, Hultsfreds kommun
 Version: 0.9.6
